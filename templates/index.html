@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>РУ-КИТ — Новости России и Китая / 俄中新闻</title>
+
+  <meta name="description" content="Агрегатор новостей о российско-китайских отношениях: ТАСС, РИА Новости, Xinhua, Global Times. 俄中关系新闻聚合：塔斯社、俄新社、新华社、环球时报。">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:site_name"   content="РУ-КИТ / 俄中新闻">
+  <meta property="og:title"       content="РУ-КИТ — Новости России и Китая / 俄中新闻">
+  <meta property="og:description" content="Агрегатор новостей о российско-китайских отношениях: ТАСС, РИА Новости, Xinhua, Global Times.">
+  <meta property="og:image"       content="{{ request.host_url }}static/og-image.svg">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
+
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="РУ-КИТ — Новости России и Китая">
+  <meta name="twitter:description" content="Агрегатор: ТАСС, РИА Новости, Xinhua, Global Times.">
+  <meta name="twitter:image"       content="{{ request.host_url }}static/og-image.svg">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48dGV4dCB5PSIuOWVtIiBmb250LXNpemU9IjkwIj7wn5ee77iPPC90ZXh0Pjwvc3ZnPg==">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="/">
+        <span class="logo-ru">РУ-КИТ</span>
+        <span class="logo-sep">/</span>
+        <span class="logo-cn">俄中新闻</span>
+      </a>
+      <div class="lang-switch">
+        <button id="btn-all" class="lang-btn active" data-lang="">Все</button>
+        <button id="btn-ru"  class="lang-btn"        data-lang="ru">RU</button>
+        <button id="btn-cn"  class="lang-btn"        data-lang="en">中文</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div id="news-grid" class="news-grid"></div>
+    <div id="sentinel" class="sentinel">
+      <span class="spinner" hidden></span>
+      <span class="end-msg" hidden>— больше новостей нет —</span>
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

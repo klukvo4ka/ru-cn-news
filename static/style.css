@@ -1,0 +1,241 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent:   #c0392b;
+  --accent-h: #a93226;
+  --bg:       #f4f4f4;
+  --surface:  #ffffff;
+  --text:     #1a1a1a;
+  --muted:    #6b7280;
+  --border:   #e5e7eb;
+
+  --tass:  #1d4ed8;
+  --ria:   #c0392b;
+  --xin:   #b45309;
+  --gt:    #15803d;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.55;
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--accent);
+  box-shadow: 0 2px 8px rgba(0,0,0,.18);
+}
+
+.header-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: .85rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  gap: .45rem;
+  color: #fff;
+}
+
+.logo-ru {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: .03em;
+}
+
+.logo-sep {
+  font-size: 1rem;
+  opacity: .55;
+}
+
+.logo-cn {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+}
+
+/* ── Lang switch ── */
+
+.lang-switch {
+  display: flex;
+  gap: .3rem;
+  background: rgba(0,0,0,.2);
+  border-radius: 6px;
+  padding: 3px;
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: rgba(255,255,255,.75);
+  font-size: .82rem;
+  font-weight: 600;
+  padding: .3rem .75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+  white-space: nowrap;
+}
+
+.lang-btn:hover  { color: #fff; background: rgba(255,255,255,.15); }
+.lang-btn.active { background: #fff; color: var(--accent); }
+
+/* ── Grid ── */
+
+main {
+  max-width: 900px;
+  margin: 1.5rem auto 3rem;
+  padding: 0 1rem;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+/* ── Card ── */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+  transition: box-shadow .15s, transform .15s;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,.09);
+  transform: translateY(-1px);
+}
+
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+
+.source-badge {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: .15rem .5rem;
+  border-radius: 3px;
+  color: #fff;
+}
+
+.src-tass    { background: var(--tass); }
+.src-ria     { background: var(--ria);  }
+.src-xinhua  { background: var(--xin);  }
+.src-gt      { background: var(--gt);   }
+.src-default { background: var(--muted);}
+
+.card-meta time {
+  font-size: .75rem;
+  color: var(--muted);
+  margin-left: auto;
+}
+
+.card-title {
+  font-size: .95rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.card-desc {
+  font-size: .83rem;
+  color: #4b5563;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: auto;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  letter-spacing: .01em;
+}
+
+.card-link:hover { color: var(--accent-h); text-decoration: underline; }
+
+/* ── Sentinel / spinner / end ── */
+
+.sentinel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+  min-height: 60px;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin .7s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.end-msg {
+  font-size: .82rem;
+  color: var(--muted);
+  letter-spacing: .04em;
+}
+
+/* ── Empty state ── */
+
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--muted);
+  padding: 4rem 1rem;
+  font-size: .95rem;
+}
+
+.empty-state strong { display: block; font-size: 1.2rem; margin-bottom: .5rem; color: var(--text); }
+
+/* ── Mobile ── */
+
+@media (max-width: 600px) {
+  .header-inner { padding: .7rem 1rem; }
+  .logo-ru      { font-size: 1.1rem; }
+  .logo-cn      { font-size: .95rem; }
+
+  .news-grid { grid-template-columns: 1fr; }
+
+  .card { padding: .85rem 1rem; }
+  .card-title { font-size: .9rem; }
+
+  .card-meta time { margin-left: 0; width: 100%; }
+}
