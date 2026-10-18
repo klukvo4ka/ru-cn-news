@@ -46,7 +46,7 @@ railway domain
 |---------------|----------------|---------------------------------------|
 | `PORT`        | 5000           | Проставляется Railway автоматически   |
 | `DB_PATH`     | `/tmp/news.db` | Путь к SQLite (ephemeral на Railway)  |
-| `REFRESH_KEY` | `rucn2025`     | Ключ для `GET /api/refresh?key=...`   |
+| `REFRESH_KEY` | `your_secret`  | Ключ для `GET /api/refresh?key=...`   |
 
 Установить переменную: `railway variables set REFRESH_KEY=your_secret`
 
@@ -56,7 +56,7 @@ railway domain
 |-------|---------------------------------|---------------------------------|
 | GET   | `/`                             | Главная страница                |
 | GET   | `/api/news?lang=ru&page=1`      | JSON-лента, 20 статей на стр.   |
-| GET   | `/api/refresh?key=rucn2025`     | Ручной запуск парсера           |
+| GET   | `/api/refresh?key=your_secret`  | Ручной запуск парсера           |
 | GET   | `/health`                       | `{"status":"ok","articles":N}`  |
 
 ### Архитектура
